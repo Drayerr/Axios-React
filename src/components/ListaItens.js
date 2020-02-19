@@ -3,6 +3,49 @@ import { ScrollView } from 'react-native'
 import axios from 'axios'
 import Produto from './Itens'
 
+export const Styles = {
+	principal: {
+		backgroundColor: "#DDD"
+	},
+
+	item: {
+		backgroundColor: "#fff",
+		color: "black",
+		borderColor: "#999",
+		borderWidth: 2,
+		margin: 10,
+		padding: 5,
+		flexDirection: "row",
+		borderRadius: 15,
+		elevation: 5,
+	},
+
+	foto: {
+		width: 102,
+		height: 102
+	},
+
+	itemData: {
+		marginLeft: 10,
+		flex: 1
+	},
+
+	txtItem: {
+		color: "blue",
+		marginBottom: 3,
+		fontSize: 18
+	},
+
+	valor: {
+		fontWeight: "bold",
+		fontSize: 16
+	},
+
+	common: {
+		fontSize: 16
+	}
+}
+
 const Lista = () => {
 	const [listaItens, setListaItens] = useState([])
 
@@ -12,9 +55,8 @@ const Lista = () => {
 		.catch(() => { alert("Deu ruim") })
 	}, [])
 
-
 	return (
-		<ScrollView>
+		<ScrollView style={ Styles.principal }>
 			{ listaItens.map((item) => {
 				return (
 					<Produto dados={item} key={item.titulo} />
